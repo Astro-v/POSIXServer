@@ -25,7 +25,7 @@ int main()
     addr.sun_family = AF_UNIX;
     strncpy(addr.sun_path, "/tmp/dm_interface", sizeof(addr.sun_path) - 1);
 
-    if (bind(fd, (struct sockaddr*)&addr, sizeof(addr)) == -1)
+    if (bind(fd, (struct sockaddr *)&addr, sizeof(addr)) == -1)
     {
         std::cerr << "Error: bind" << std::endl;
         return 1;
@@ -39,13 +39,19 @@ int main()
             return 1;
         }
 
-        if ((cfd = accept(fd, (struct sockaddr*)&addr, &len)) == -1)
+        if ((cfd = accept(fd, (struct sockaddr *)&addr, &len)) == -1)
         {
             std::cerr << "Error: accept" << std::endl;
             return 1;
         }
         std::cout << "Connection receive" << std::endl;
         ssize_t n = 0;
+
+        int enable = 1;
+        if (setsockopt(cfd, SOL_SOCKET, SO_KEEPALIVE, &enable, sizeof(int)) < 0)
+        {
+            std::cerr << "Error: setsockopt(SO_KEEPALIVE) failed" << std::endl;
+        }
 
         // tant que la connection est ouverte, on lit les données reçues
         do

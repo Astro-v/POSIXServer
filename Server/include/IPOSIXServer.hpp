@@ -3,12 +3,12 @@
 
 #include <string>
 
-class IUNIXServer
+class IPOSIXServer
 {
-   public:
-    virtual ~IUNIXServer() = default;
+public:
+    virtual ~IPOSIXServer() = default;
     virtual void start() = 0;
     virtual void stop() = 0;
 };
 
-#endif  // I_UNIX_SERVER_HPP
+#endif // I_UNIX_SERVER_HPP

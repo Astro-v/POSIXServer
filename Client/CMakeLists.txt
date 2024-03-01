@@ -1,3 +1,3 @@
-add_executable(DMInterfaceClient DMInterfaceClient.cpp)
+add_executable(POSIXClient POSIXClient.cpp)
 
-target_include_directories(ClientDataManagerInterface PUBLIC include)
+target_include_directories(POSIXClient PUBLIC include)
