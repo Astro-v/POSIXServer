@@ -1,0 +1,3 @@
+add_executable(DMInterfaceServer DMInterfaceServer.cpp)
+
+target_include_directories(DMInterfaceServer PUBLIC include)

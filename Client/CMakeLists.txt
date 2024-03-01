@@ -1,0 +1,3 @@
+add_executable(DMInterfaceClient DMInterfaceClient.cpp)
+
+target_include_directories(ClientDataManagerInterface PUBLIC include)
