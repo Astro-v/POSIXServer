@@ -4,5 +4,7 @@ project(POSIXServer)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_subdirectory(Server)
-add_subdirectory(Client)
+add_subdirectory(libPosix)
+
+add_subdirectory(server)
+add_subdirectory(client)

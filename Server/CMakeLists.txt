@@ -1,3 +1,0 @@
-add_executable(POSIXServer POSIXServer.cpp)
-
-target_include_directories(POSIXServer PUBLIC include)

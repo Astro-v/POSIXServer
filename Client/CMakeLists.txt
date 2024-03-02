@@ -1,3 +1,0 @@
-add_executable(POSIXClient POSIXClient.cpp)
-
-target_include_directories(POSIXClient PUBLIC include)
