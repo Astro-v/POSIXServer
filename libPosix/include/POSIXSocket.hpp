@@ -13,8 +13,9 @@ public:
     POSIXSocket(int fd);
     ~POSIXSocket();
 
+    int set_timeout(int seconds);
     int connect(POSIXAddress &address);
-    int send(std::string message);
+    int send(const std::string &message);
     int receive(std::string &message);
 };
 

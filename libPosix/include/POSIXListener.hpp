@@ -9,6 +9,8 @@ class POSIXListener
 {
 private:
     int m_fd;
+    void handle_bind_error(int error);
+    void handle_close_error(int error);
 
 public:
     POSIXListener();
