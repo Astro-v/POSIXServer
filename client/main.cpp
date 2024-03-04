@@ -10,12 +10,9 @@ int main()
     POSIXAddress address("/tmp/POSIXSocketTest");
     POSIXSocket client;
     client.connect(address);
+    sleep(10);
     std::string message("Hello, World!");
     client.send(message);
 
-    std::string message2("Goodbye, World!");
-    client.send(message2);
-
-    sleep(10);
     return 0;
 }
