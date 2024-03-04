@@ -16,6 +16,14 @@ POSIXAddress::POSIXAddress(const char *path)
     strncpy(m_addr.sun_path, path, sizeof(m_addr.sun_path) - 1);
 }
 
+POSIXAddress::POSIXAddress(const POSIXAddress &other)
+{
+    // Copy the address
+
+    m_addr.sun_family = AF_UNIX;
+    strncpy(m_addr.sun_path, other.m_addr.sun_path, sizeof(m_addr.sun_path) - 1);
+}
+
 /**
  * @brief Unlink the socket file
  * @return void

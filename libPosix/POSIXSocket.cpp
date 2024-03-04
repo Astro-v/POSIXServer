@@ -104,6 +104,8 @@ int POSIXSocket::receive(std::string &message)
     ssize_t n = 0;
     char buf[100];
 
+    memset(buf, 0, sizeof(buf));
+
     // Wait to receive the message (Blocking call)
     n = ::recv(m_fd, &buf, sizeof(buf), 0);
 

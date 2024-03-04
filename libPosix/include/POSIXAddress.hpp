@@ -16,6 +16,7 @@ public:
     POSIXAddress(const std::string &path);
     POSIXAddress(const char *path);
     ~POSIXAddress() = default;
+    POSIXAddress(const POSIXAddress &);
 
     void unlink();
 
