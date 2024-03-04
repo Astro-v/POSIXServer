@@ -13,7 +13,6 @@ class POSIXClient
 {
     std::unique_ptr<POSIXSocket> m_socket;
     Server &m_server;
-    std::thread m_thread;
     std::mutex m_mutex;
     boost::signals2::connection m_conn;
 

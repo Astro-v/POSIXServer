@@ -7,6 +7,7 @@
 #include "POSIXServer.hpp"
 #include "POSIXClient.hpp"
 #include "POSIXAddress.hpp"
+#include "ThreadVector.hpp"
 #include "DataInterface.hpp"
 #include "Query.hpp"
 

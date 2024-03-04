@@ -1,4 +1,4 @@
-add_executable(POSIXServer main.cpp POSIXClient.cpp POSIXServer.cpp Server.cpp)
+add_executable(POSIXServer main.cpp POSIXClient.cpp POSIXServer.cpp Server.cpp ThreadVector.cpp)
 
 target_link_libraries(POSIXServer PUBLIC libPosix)
 
