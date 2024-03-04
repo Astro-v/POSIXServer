@@ -18,7 +18,9 @@ void POSIXServer::start()
 {
     while (true)
     {
+        std::cout << "Waiting client" << std::endl;
         auto client = m_listener.accept();
+        std::cout << "Client connected" << std::endl;
         if (client)
         {
             m_server.add_client(std::make_unique<POSIXClient>(std::move(client), m_server));

@@ -6,6 +6,7 @@ Server::Server(std::unique_ptr<DataInterface> data_interface, std::string addres
     : m_data_interface(std::move(data_interface)), m_address(address), m_server(m_address, *this)
 {
 
+    std::cout << "Initializing server" << std::endl;
     m_data_interface->subscribe(*this);
 }
 
@@ -16,6 +17,8 @@ Server::~Server()
 
 void Server::start()
 {
+
+    std::cout << "Starting server" << std::endl;
     m_server.start();
 }
 

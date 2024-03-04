@@ -10,15 +10,12 @@
 
 int main()
 {
-    std::cout << "Starting server" << std::endl;
     /*POSIXAddress address("/tmp/POSIXSocketTest");
     POSIXListener listener;
 
     listener.listen(address);*/
 
     Server server(std::make_unique<DummyData>(), "/tmp/POSIXSocketTest");
-    //  server.start();
-
-    std::cout << "Closing server" << std::endl;
+    server.start();
     return 0;
 }

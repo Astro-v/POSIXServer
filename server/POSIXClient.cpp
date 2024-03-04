@@ -17,11 +17,13 @@ POSIXClient::POSIXClient(std::unique_ptr<POSIXSocket> socket, Server &server)
                             m_socket->send(q.message);
                             m_mutex.unlock();
                         } });
+
+    start();
 }
 
 POSIXClient::~POSIXClient()
 {
-    stop();
+    std::cout << "Stopping client destructor" << std::endl;
 }
 
 void POSIXClient::start()
@@ -32,6 +34,7 @@ void POSIXClient::start()
         std::string message;
         while (output == 0)
         {
+            std::cout << "Waiting for message" << std::endl;
             m_mutex.lock();
             output = m_socket->receive(message);
             m_mutex.unlock();
@@ -40,7 +43,7 @@ void POSIXClient::start()
                 Query q{message, Query::Type::RECEIVE};
                 m_server.m_queries(q, *this);
             }
-        } });
+        } stop(); });
 }
 
 void POSIXClient::stop()
@@ -48,5 +51,5 @@ void POSIXClient::stop()
     m_conn.disconnect();
     m_server.remove_client(this);
 
-    std::cout << "Stopping client" << std::endl;
+    std::cout << "Stopping client stop" << std::endl;
 }
